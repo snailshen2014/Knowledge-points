@@ -24,7 +24,7 @@ TCP把连接作为最基本的对象，每一条TCP连接都有两个端点，�
 
 ### TCP三次握手
 
-![三次握手](/Users/yanjunshen/Desktop/three.png)
+![三次握手](https://github.com/snailshen2014/Knowledge-points/blob/main/three.png)
 
 **最开始的时候客户端和服务器都是处于CLOSED状态。主动打开连接的为客户端，被动打开连接的是服务器。
 
@@ -48,7 +48,7 @@ TCP把连接作为最基本的对象，每一条TCP连接都有两个端点，�
 
 数据传输完毕后，双方都可释放连接。最开始的时候，客户端和服务器都是处于ESTABLISHED状态，然后客户端主动关闭，服务器被动关闭。
 
-![四次挥手](/Users/yanjunshen/Desktop/four.png)
+![四次挥手](https://github.com/snailshen2014/Knowledge-points/blob/main/four.png)
 
 1. 客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。
 2. 服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。
